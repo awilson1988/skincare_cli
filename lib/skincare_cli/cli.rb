@@ -2,8 +2,10 @@ class CLI
 
     def start 
         puts "Hello and welcome to your personal esthetician! 
-        Need some advice on the best way to treat your skincare needs?"
-        puts "Who do I have the pleasure of assisting today?:"
+        Need some advice on the best way to treat your skincare concerns? 
+        If you give me a little more info I 
+        can make some suggestions on the best products and ingredients that can help you on your way to gorgeous skin."
+        puts "Let's get started! Who do I have the pleasure of assisting today?:"
         API.get_data
         #binding.pry
         greet(user_input)
@@ -41,6 +43,8 @@ end
 
         selection = user_input
     end
+
+    def 
 
 
     def menu 
