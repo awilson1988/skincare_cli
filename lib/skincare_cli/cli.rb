@@ -23,7 +23,7 @@ class CLI
     end 
 
     def skintype_list 
-        ["Dry", "Oily/Acne-Prone", "Normal","Combination","Sensitive"].each.with_index(1) do |skintype, i|
+        ["Dry", "Oily/Acne-Prone", "Combination","Sensitive"].each.with_index(1) do |skintype, i|
             puts "#{i}. #{skintype}"
     end 
     skincare_selection
@@ -44,7 +44,17 @@ end
         selection = user_input
     end
 
-    def 
+    def product_return 
+        
+        if selection == 'Dry'
+            dry_skin_products 
+            elsif selection == 'Oily/Acne-Prone' 
+                oily_acne_products 
+                elsif selection == 'Combination' 
+                    combo_products 
+                else selection =='Sensitive' 
+                    sensitive_products 
+                end
 
 
     def menu 
