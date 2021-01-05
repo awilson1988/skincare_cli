@@ -1,7 +1,6 @@
 class CLI 
 
     def start 
-        #API.get_data
         puts "Hello and welcome to your personal esthetician! 
         Need some advice on the best way to treat your skincare needs?"
         puts "Who do I have the pleasure of assisting today?:"
@@ -22,7 +21,7 @@ class CLI
     end 
 
     def skintype_list 
-        ["Dry", "Oily","Acne-prone", "Normal","Combination","Sensitive"].each.with_index(1) do |skintype, i|
+        ["Dry", "Oily/Acne-Prone", "Normal","Combination","Sensitive"].each.with_index(1) do |skintype, i|
             puts "#{i}. #{skintype}"
     end 
     skincare_selection
@@ -42,6 +41,7 @@ end
 
         selection = user_input
     end
+
 
     def menu 
         selection = user_input 
