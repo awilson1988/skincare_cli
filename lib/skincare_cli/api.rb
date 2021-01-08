@@ -6,8 +6,9 @@ class API
     skincare_array = JSON.parse(response) 
     skincare_array.each do |skincare| 
         Skincare.new(skincare) 
-        end
-       # binding.pry
+        
+        #binding.pry
       end
     
-    end
+    end   
+end  

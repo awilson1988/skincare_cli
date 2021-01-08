@@ -9,8 +9,8 @@ class Skincare
     #def initialize(brand, name, ingredient_list) 
         #@brand = brand 
         #@name = name 
-       # @ingredient_list = ingredient_list 
-       # save
+        #@ingredient_list = ingredient_list 
+        #save
 #end  
 
 def initialize(skincare_hash)
