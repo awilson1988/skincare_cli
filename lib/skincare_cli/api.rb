@@ -3,12 +3,13 @@ class API
 
     def self.get_data 
     response = RestClient.get('https://skincare-api.herokuapp.com/products/')
-    skincare_array = JSON.parse(response) 
-    skincare_array.each do |skincare| 
-        Skincare.new(skincare) 
-        
+    products_array = JSON.parse(response)[0..21]  
+    
+    products_array.each do |product| 
+       Skincare.new(product) 
+        end
         #binding.pry
       end
     
     end   
-end  
+ 

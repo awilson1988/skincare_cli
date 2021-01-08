@@ -8,10 +8,10 @@ class Skincare
 
     #def initialize(brand, name, ingredient_list) 
         #@brand = brand 
-        #@name = name 
-        #@ingredient_list = ingredient_list 
-        #save
-#end  
+#         @name = name 
+#         @ingredient_list = ingredient_list 
+#         save
+# end  
 
 def initialize(skincare_hash)
     skincare_hash.each do |k, v| 

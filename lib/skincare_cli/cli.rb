@@ -26,26 +26,20 @@ class CLI
         puts " 
         Great! It's nice to meet you #{name}."
         puts " 
-        Select 'y' to to see list of skintypes 
+        Select 'y' to to see list of products 
         
         or select 'exit' if your skin is already perfect."
         menu 
-    end
- 
+    end 
 
-    def skintype_list
-        #skincare_selection # prints out lists of skin types
-        @types = ["Dry", "Oily/Acne-Prone", "Combination","Sensitive"]
-        @types.each.with_index(1) do |skintype, i|
+    def products_list  
+        Skincare.all.each.with_index(1) do |product, i| 
             puts "" 
             puts "" 
             puts "~~~~~~~~~~~~~~~~~~~~~~~~~"
-            puts "#{i}. #{skintype}"
-    end 
-    puts ""
-    
-    skincare_selection # call this method to get users response
-end
+            puts "#{i}. #{product.name}"    
+        end 
+    end
 
     def goodbye 
         puts "Have a beautiful day!" 
@@ -90,7 +84,7 @@ end
         dry_skin_products.each.with_index(1) do |product, i|
           product.each do |key, value| 
             puts "#{i}. #{key} - #{value}"
-               
+           
                 end 
             end
         end
@@ -101,37 +95,62 @@ end
        #Products such as..."
     
 
-   # def oily_acne_products 
-        #[{"Missha": "Time Revolution Night Repair Turn Over Control Booster"}, 
-        #{"Sulwhasoo": "Concentrated Ginseng Renewing Cream"}, 
-        #{"Kiehl's": "Clearly Corrective Clarity Activating Toner"}, 
-        #{"Kiehl's": "Calendula Deep Clean Foaming Face Wash"}, 
-        #{"The Ordinary": "Natural Moisturising Factors + HA"},
-       # {"Sunday Riley": "U.F.O. Ultra Clarifying Face Oil"}]
-   # end 
+    def oily_acne_products 
+        oily_acne_products = [{"Missha": "Time Revolution Night Repair Turn Over Control Booster"}, 
+        {"Sulwhasoo": "Concentrated Ginseng Renewing Cream"}, 
+        {"Kiehl's": "Clearly Corrective Clarity Activating Toner"}, 
+        {"Kiehl's": "Calendula Deep Clean Foaming Face Wash"}, 
+        {"The Ordinary": "Natural Moisturising Factors + HA"},
+        {"Sunday Riley": "U.F.O. Ultra Clarifying Face Oil"}]
+        oily_acne_products.each.with_index(1) do |product, i|
+            product.each do |key, value| 
+              puts "#{i}. #{key} - #{value}"
+             
+                  end 
+              end
+          end
+    def combo_products 
+       combo_products = [{"Belif": "Witch Hazel Herbal Extract Toner"}, 
+        {"Mario Badescu": "Seaweed Cleansing Lotion"}, {"Cosrx": "AHA 7 Whitehead Power Liquid"},  
+        {"Etude House": "Berry AHA Bright Peel Sleeping Pack"}, 
+       {"Cosrx": "Natural BHA Skin Returning A-Sol Toner"}] 
+       combo_products.each.with_index(1) do |product, i|
+        product.each do |key, value| 
+          puts "#{i}. #{key} - #{value}" 
 
-    #def combo_products 
-       # [{"Belif": "Witch Hazel Herbal Extract Toner"}, 
-       # {"Mario Badescu": "Seaweed Cleansing Lotion"}, {"Cosrx": "AHA 7 Whitehead Power Liquid"},  
-       # {"Etude House": "Berry AHA Bright Peel Sleeping Pack"}, 
-       #{"Cosrx": "Natural BHA Skin Returning A-Sol Toner"}] 
-    #end 
+            end 
+        end
+    end
+    def sensitive_products 
+       sensitive_products = [{"Cosrx": "Aloe Vera Oil-Free Moisture Cream"}, 
+        {"Mario Badescu": "Aloe Vera Toner"}, {"Holika Holika": "Don't Worry Bee Care Toner"},
+        {"Kiehl's": "Calendula Deep Clean Foaming Face Wash"}, 
+        {"Sunday Riley": "Martian Mattifying Melting Water Gel Toner"}, {"Alaffia": "Balancing Day Cream"}] 
+        combo_products.each.with_index(1) do |product, i|
+            product.each do |key, value| 
+              puts "#{i}. #{key} - #{value}" 
+    
+                end 
+            end
+        end
+   end
 
-    #def sensitive_products 
-       # [{"Cosrx": "Aloe Vera Oil-Free Moisture Cream"}, 
-        #{"Mario Badescu": "Aloe Vera Toner"}, {"Holika Holika": "Don't Worry Bee Care Toner"},
-        #{"Kiehl's": "Calendula Deep Clean Foaming Face Wash"}, 
-        #{"Sunday Riley": "Martian Mattifying Melting Water Gel Toner"}, {"Alaffia": "Balancing Day Cream"}] 
+   def product_details
+    
+        puts "Brand: #{product.brand}"
+        puts "Name: #{product.name}" 
+        puts "Ingredient list: #{product.ingredient_list}"
+        #binding.pry
+   end 
 
-   # end
 
 
     def menu 
         selection = user_input 
 
         if selection == 'y'
-            skintype_list
-            menu
+            products_list
+            
         elsif selection == 'exit' 
             goodbye
         else 
@@ -142,4 +161,4 @@ end
 
 
   
-end
+
