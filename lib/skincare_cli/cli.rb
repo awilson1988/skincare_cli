@@ -83,16 +83,16 @@ end
 
     def dry_skin_products 
         puts ""
+        puts "Select a product to learn more."
          dry_skin_products = [{"belif": "The True Cream Aqua Bomb"}, {"Cerave": "Hydrating Facial Cleanser"}, 
         {"Laneige": "Water Bank Gel Cream"}, {"Hada Labo": "Goku-Jun Serum"}, 
         {"Missha": "Geum Sul Skin Toner"}, {"Kiehl's": "Ultra Facial Cream Spf 30 "}] 
-        dry_skin_products.each do |product|
-          product[0] do |key, value| 
-                #puts "#{key} - #{value}"
-                
-                
+        dry_skin_products.each.with_index(1) do |product, i|
+          product.each do |key, value| 
+            puts "#{i}. #{key} - #{value}"
+               
                 end 
-             end
+            end
         end
           
         
