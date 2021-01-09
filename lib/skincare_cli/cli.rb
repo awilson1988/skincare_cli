@@ -32,13 +32,16 @@ class CLI
         menu 
     end 
 
-    def products_list  
+    def products_list
         Skincare.all.each.with_index(1) do |product, i| 
             puts "" 
             puts "" 
             puts "~~~~~~~~~~~~~~~~~~~~~~~~~"
-            puts "#{i}. #{product.name}"    
-        end 
+           
+            puts "#{i}. #{product.name}" 
+        end
+         products_selection 
+         end 
     end
 
     def goodbye 
@@ -50,44 +53,35 @@ class CLI
         menu
     end 
 
-    def skincare_selection # grabs our users skin type selection
-        puts "Which skintype best describes your skin." 
-
-        index = user_input.to_i - 1 # return index numberr for skin type selection
-       @selection = @types[index] # we use bracket notation to access elements in an array 
-
-        product_return
-    end
-
     # how do we pass data from one method to another method 
 
-    def product_return
+    # def product_return
         
-        if @selection == 'Dry'
-           dry_skin_products
-        elsif @selection == 'Oily/Acne-Prone' 
-            oily_acne_products 
-        elsif @selection == 'Combination' 
-            combo_products 
-        else @selection =='Sensitive' 
-            sensitive_products 
-        end
+    #     if @selection == 'Dry'
+    #        dry_skin_products
+    #     elsif @selection == 'Oily/Acne-Prone' 
+    #         oily_acne_products 
+    #     elsif @selection == 'Combination' 
+    #         combo_products 
+    #     else @selection =='Sensitive' 
+    #         sensitive_products 
+    #     end
 
-    end
+    # end
 
-    def dry_skin_products 
-        puts ""
-        puts "Select a product to learn more."
-         dry_skin_products = [{"belif": "The True Cream Aqua Bomb"}, {"Cerave": "Hydrating Facial Cleanser"}, 
-        {"Laneige": "Water Bank Gel Cream"}, {"Hada Labo": "Goku-Jun Serum"}, 
-        {"Missha": "Geum Sul Skin Toner"}, {"Kiehl's": "Ultra Facial Cream Spf 30 "}] 
-        dry_skin_products.each.with_index(1) do |product, i|
-          product.each do |key, value| 
-            puts "#{i}. #{key} - #{value}"
+    # def dry_skin_products 
+    #     puts ""
+    #     puts "Select a product to learn more."
+    #      dry_skin_products = [{"belif": "The True Cream Aqua Bomb"}, {"Cerave": "Hydrating Facial Cleanser"}, 
+    #     {"Laneige": "Water Bank Gel Cream"}, {"Hada Labo": "Goku-Jun Serum"}, 
+    #     {"Missha": "Geum Sul Skin Toner"}, {"Kiehl's": "Ultra Facial Cream Spf 30 "}] 
+    #     dry_skin_products.each.with_index(1) do |product, i|
+    #       product.each do |key, value| 
+    #         puts "#{i}. #{key} - #{value}"
            
-                end 
-            end
-        end
+    #             end 
+    #         end
+    #     end
           
         
         #puts "For dry skin some ingredients to look for are Ceramides, Squalane or Hyaluronic Acid. 
@@ -95,52 +89,63 @@ class CLI
        #Products such as..."
     
 
-    def oily_acne_products 
-        oily_acne_products = [{"Missha": "Time Revolution Night Repair Turn Over Control Booster"}, 
-        {"Sulwhasoo": "Concentrated Ginseng Renewing Cream"}, 
-        {"Kiehl's": "Clearly Corrective Clarity Activating Toner"}, 
-        {"Kiehl's": "Calendula Deep Clean Foaming Face Wash"}, 
-        {"The Ordinary": "Natural Moisturising Factors + HA"},
-        {"Sunday Riley": "U.F.O. Ultra Clarifying Face Oil"}]
-        oily_acne_products.each.with_index(1) do |product, i|
-            product.each do |key, value| 
-              puts "#{i}. #{key} - #{value}"
+    # def oily_acne_products 
+    #     oily_acne_products = [{"Missha": "Time Revolution Night Repair Turn Over Control Booster"}, 
+    #     {"Sulwhasoo": "Concentrated Ginseng Renewing Cream"}, 
+    #     {"Kiehl's": "Clearly Corrective Clarity Activating Toner"}, 
+    #     {"Kiehl's": "Calendula Deep Clean Foaming Face Wash"}, 
+    #     {"The Ordinary": "Natural Moisturising Factors + HA"},
+    #     {"Sunday Riley": "U.F.O. Ultra Clarifying Face Oil"}]
+    #     oily_acne_products.each.with_index(1) do |product, i|
+    #         product.each do |key, value| 
+    #           puts "#{i}. #{key} - #{value}"
              
-                  end 
-              end
-          end
-    def combo_products 
-       combo_products = [{"Belif": "Witch Hazel Herbal Extract Toner"}, 
-        {"Mario Badescu": "Seaweed Cleansing Lotion"}, {"Cosrx": "AHA 7 Whitehead Power Liquid"},  
-        {"Etude House": "Berry AHA Bright Peel Sleeping Pack"}, 
-       {"Cosrx": "Natural BHA Skin Returning A-Sol Toner"}] 
-       combo_products.each.with_index(1) do |product, i|
-        product.each do |key, value| 
-          puts "#{i}. #{key} - #{value}" 
+    #               end 
+    #           end
+    #       end
+    # def combo_products 
+    #    combo_products = [{"Belif": "Witch Hazel Herbal Extract Toner"}, 
+    #     {"Mario Badescu": "Seaweed Cleansing Lotion"}, {"Cosrx": "AHA 7 Whitehead Power Liquid"},  
+    #     {"Etude House": "Berry AHA Bright Peel Sleeping Pack"}, 
+    #    {"Cosrx": "Natural BHA Skin Returning A-Sol Toner"}] 
+    #    combo_products.each.with_index(1) do |product, i|
+    #     product.each do |key, value| 
+    #       puts "#{i}. #{key} - #{value}" 
 
-            end 
-        end
-    end
-    def sensitive_products 
-       sensitive_products = [{"Cosrx": "Aloe Vera Oil-Free Moisture Cream"}, 
-        {"Mario Badescu": "Aloe Vera Toner"}, {"Holika Holika": "Don't Worry Bee Care Toner"},
-        {"Kiehl's": "Calendula Deep Clean Foaming Face Wash"}, 
-        {"Sunday Riley": "Martian Mattifying Melting Water Gel Toner"}, {"Alaffia": "Balancing Day Cream"}] 
-        combo_products.each.with_index(1) do |product, i|
-            product.each do |key, value| 
-              puts "#{i}. #{key} - #{value}" 
+    #         end 
+    #     end
+    # end
+    # def sensitive_products 
+    #    sensitive_products = [{"Cosrx": "Aloe Vera Oil-Free Moisture Cream"}, 
+    #     {"Mario Badescu": "Aloe Vera Toner"}, {"Holika Holika": "Don't Worry Bee Care Toner"},
+    #     {"Kiehl's": "Calendula Deep Clean Foaming Face Wash"}, 
+    #     {"Sunday Riley": "Martian Mattifying Melting Water Gel Toner"}, {"Alaffia": "Balancing Day Cream"}] 
+    #     combo_products.each.with_index(1) do |product, i|
+    #         product.each do |key, value| 
+    #           puts "#{i}. #{key} - #{value}" 
     
-                end 
-            end
-        end
-   end
+    #             end 
+    #         end
+    #     end 
 
-   def product_details
-    
+        def products_selection
+            puts "Select a product to learn more." 
+            selection = user_input.to_i-1 
+            
+            product = Skincare.all[selection] 
+        
+            product_details(product)
+        end
+  
+        
+   
+
+   def product_details(product)
         puts "Brand: #{product.brand}"
         puts "Name: #{product.name}" 
-        puts "Ingredient list: #{product.ingredient_list}"
+        puts "Ingredient list: #{product.ingredient_list.join(", ")}"
         #binding.pry
+        menu
    end 
 
 
