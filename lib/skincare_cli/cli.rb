@@ -2,7 +2,7 @@ require 'pry'
 class CLI 
 
     def start  
-        puts"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".colorize(:yellow)
+        puts"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".colorize(:magenta)
         puts "
         Hello and welcome to your personal esthetician!   
 
@@ -10,9 +10,9 @@ class CLI
 
         If you give me a little more information I can make some suggestions 
         
-        on the best products and ingredients that can help you on your way to gorgeous skin!".colorize(:cyan)
+        on the best products and ingredients that can help you on your way to gorgeous skin!".colorize(:green)
         puts "
-        Let's get started! Who do I have the pleasure of assisting today?:".colorize(:cyan)
+        Let's get started! Who do I have the pleasure of assisting today?:".colorize(:green)
         API.get_data
         #binding.pry
         greet(user_input)
@@ -24,11 +24,11 @@ class CLI
 
     def greet(name) 
         puts " 
-        Great! It's nice to meet you #{name}."
+        Great! It's nice to meet you #{name}.".colorize(:cyan)
         puts " 
         Select 'y' to to see list of products 
         
-        or select 'exit' if your skin is already perfect."
+        or select 'exit' if your skin is already perfect.".colorize(:cyan)
         menu 
     end 
 
@@ -36,21 +36,24 @@ class CLI
         Skincare.all.each.with_index(1) do |product, i| 
             puts "" 
             puts "" 
-            puts "~~~~~~~~~~~~~~~~~~~~~~~~~"
+            puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".colorize(:magenta)
            
-            puts "#{i}. #{product.name}" 
+            puts "#{i}. #{product.name}".colorize(:yellow)
+            
         end
          products_selection 
          end 
     end
 
     def goodbye 
-        puts "Have a beautiful day!" 
+        puts "Have a beautiful day!".colorize(:green)
+         
     end
 
     def invalid 
-        puts "Oh dear...that dosen't seem to have worked! Try again?"
-        menu
+        puts "Oh dear...that dosen't seem to have worked! Try again?".colorize(:red)
+        menu 
+        
     end 
 
     # how do we pass data from one method to another method 
@@ -129,7 +132,7 @@ class CLI
     #     end 
 
         def products_selection
-            puts "Select a product to learn more." 
+            puts "Please select a product to learn more.".colorize(:green) 
             selection = user_input.to_i-1 
             
             product = Skincare.all[selection] 
@@ -141,9 +144,11 @@ class CLI
    
 
    def product_details(product)
-        puts "Brand: #{product.brand}"
-        puts "Name: #{product.name}" 
-        puts "Ingredient list: #{product.ingredient_list.join(", ")}"
+        puts "Brand: #{product.brand}".colorize(:green)
+        puts ""
+        puts "Name: #{product.name}".colorize(:green)  
+        puts ""
+        puts "Ingredient list: #{product.ingredient_list.join(", ")}".colorize(:green)
         #binding.pry
         menu
    end 
