@@ -1,8 +1,7 @@
-require 'pry'
 class CLI 
 
     def start  
-        puts"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".colorize(:magenta)
+        puts"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".colorize(:magenta)
         puts "
         Hello and welcome to your personal esthetician!   
 
@@ -34,9 +33,9 @@ class CLI
     def products_list
         Skincare.all.each.with_index(1) do |product, i| 
             puts "" 
-            puts "" 
-            puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".colorize(:magenta)
+            puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".colorize(:magenta)
             puts "#{i}. #{product.name}".colorize(:yellow)
+            puts  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".colorize(:magenta)
             
             end
          products_selection 
@@ -132,20 +131,21 @@ class CLI
         def products_selection
             puts "" 
             puts "" 
-            puts ""
             puts "Please select a product to learn more.".colorize(:green) 
             selection = user_input.to_i-1 
             
-            product = Skincare.all[selection] 
+            product = Skincare.all[selection]
         
             product_details(product)
-            menu
+        
         end
   
         
    
 
    def product_details(product)
+        puts ""   
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         puts "Brand: #{product.brand}".colorize(:green)
         puts ""
         puts "Name: #{product.name}".colorize(:green)  
@@ -153,7 +153,7 @@ class CLI
         puts "Ingredient list:".colorize(:green) 
             product.ingredient_list.each do |ingredient|
                 puts "- #{ingredient}".colorize(:green) 
-            end
+           end
         menu
    end 
 
