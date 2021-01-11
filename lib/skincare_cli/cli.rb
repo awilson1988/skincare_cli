@@ -6,11 +6,11 @@ class CLI
         puts "
         Hello and welcome to your personal esthetician!   
 
-        Need some advice on the best way to treat your skincare concerns? 
+        Need some advice on the best way to treat your skincare needs? 
 
-        If you give me a little more information I can make some suggestions 
-        
-        on the best products and ingredients that can help you on your way to gorgeous skin!".colorize(:green)
+        Allow me to show you some products and you can pick one that you would like to hear more about. 
+         
+        This is your first step on your way to gorgeous skin!".colorize(:green)
         puts "
         Let's get started! Who do I have the pleasure of assisting today?:".colorize(:green)
         API.get_data
@@ -132,12 +132,16 @@ class CLI
     #     end 
 
         def products_selection
+            puts "" 
+            puts "" 
+            puts ""
             puts "Please select a product to learn more.".colorize(:green) 
             selection = user_input.to_i-1 
             
             product = Skincare.all[selection] 
         
             product_details(product)
+            menu
         end
   
         
