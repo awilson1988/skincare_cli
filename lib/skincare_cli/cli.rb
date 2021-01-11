@@ -14,7 +14,6 @@ class CLI
         puts "
         Let's get started! Who do I have the pleasure of assisting today?:".colorize(:green)
         API.get_data
-        #binding.pry
         greet(user_input)
     end 
 
@@ -37,12 +36,11 @@ class CLI
             puts "" 
             puts "" 
             puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".colorize(:magenta)
-           
             puts "#{i}. #{product.name}".colorize(:yellow)
             
-        end
+            end
          products_selection 
-         end 
+        end 
     end
 
     def goodbye 
@@ -152,8 +150,10 @@ class CLI
         puts ""
         puts "Name: #{product.name}".colorize(:green)  
         puts ""
-        puts "Ingredient list: #{product.ingredient_list.join(", ")}".colorize(:green)
-        #binding.pry
+        puts "Ingredient list:".colorize(:green) 
+            product.ingredient_list.each do |ingredient|
+                puts "- #{ingredient}".colorize(:green) 
+            end
         menu
    end 
 
@@ -175,4 +175,3 @@ class CLI
 
 
   
-
