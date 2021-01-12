@@ -1,14 +1,12 @@
 class CLI 
 
     def start  
-        puts"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".colorize(:magenta)
+        puts"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".colorize(:magenta)
         puts "
-        Hello and welcome to your personal esthetician!   
-
-        Need some advice on the best way to treat your skincare needs? 
-
-        Allow me to show you some products and you can pick one that you would like to hear more about. 
-         
+        Hello and welcome to your virtual esthetician! Allow me to show you some skincare 
+        
+        products and you can select one that you would like to hear more about. 
+        
         This is your first step on your way to gorgeous skin!".colorize(:green)
         puts "
         Let's get started! Who do I have the pleasure of assisting today?:".colorize(:green)

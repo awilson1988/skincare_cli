@@ -1,4 +1,3 @@
-require 'pry'
 class API 
 
     def self.get_data 
@@ -8,7 +7,7 @@ class API
     products_array.each do |product| 
        Skincare.new(product) 
         end
-        #binding.pry
+        
       end
     
     end   
