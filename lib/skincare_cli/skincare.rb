@@ -4,13 +4,6 @@ class Skincare
 
     attr_accessor :brand, :name, :ingredient_list 
 
-    #def initialize(brand, name, ingredient_list) 
-        #@brand = brand 
-#         @name = name 
-#         @ingredient_list = ingredient_list 
-#         save
-# end  
-
 def initialize(skincare_hash)
     skincare_hash.each do |k, v| 
         self.send("#{k}=", v) if self.respond_to?("#{k}=")
